@@ -34,6 +34,8 @@ class Task(db.Model):
         if not task:
             raise NoResultFound
         task.name, task.status = self.name, self.status
+        db.session.add(task)
+        db.session.commit()
         return task
 
     @classmethod
