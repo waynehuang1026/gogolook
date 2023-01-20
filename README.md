@@ -16,14 +16,17 @@ You will get a container named `gogolook:latest`, and then you can run the conta
 ## Run in local
 
 Install requirements in your virtual env.
+
     $ python3 -m venv venv
     $ source venv/bin/activate
     $ pip install -r requirements.txt
 
 Run app.py
+
     $ python -u app.py
 
 ## Unit Test
 
 Run pytest
+
     $ pytest -s tests/test_task.py
