@@ -1,8 +1,11 @@
+import os
+
 import connexion
 
 from main.models.task import db
 
-SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:root@localhost:3306/demo"
+db_host = os.environ.get("DB_HOST", "localhost")
+SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://root:root@{db_host}:3306/demo"
 
 
 def create_app():

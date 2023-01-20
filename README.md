@@ -8,25 +8,22 @@ Package version
 
 ### Build image/database
 
-    $ docker-compose up -d
+    docker-compose up -d
 
-You will get a container named `gogolook:latest`, and then you can run the container
+You will get a container named `gogolook` and you can send the request to `localhost:8000` port.
 
+### Run in local env
 
-## Run in local
+Install requirements in your local virtual env.
 
-Install requirements in your virtual env.
-
-    $ python3 -m venv venv
-    $ source venv/bin/activate
-    $ pip install -r requirements.txt
+    pip install -r requirements.txt
 
 Run app.py
 
-    $ python -u app.py
+    python -u app.py
 
-## Unit Test
+### Unit Test
 
 Run pytest
 
-    $ pytest -s tests/test_task.py
+    pytest -s tests/test_task.py

@@ -1,4 +1,5 @@
 import json
+import os
 
 import pytest
 
@@ -7,7 +8,8 @@ from sqlalchemy.orm.exc import NoResultFound
 from app import create_app
 from main.models.task import db
 
-SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:root@localhost:3306/test"
+db_host = os.environ.get("DB_HOST", "localhost")
+SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://root:root@{db_host}:3306/test"
 
 
 @pytest.fixture()
