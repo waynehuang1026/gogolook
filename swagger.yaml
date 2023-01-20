@@ -1,0 +1,77 @@
+openapi: "3.0.2"
+info:
+  title: API Title
+  version: "1.0"
+servers:
+  - url: http://localhost:8000
+paths:
+  /tasks:
+    get:
+      operationId: "main.api.task.TaskAPI.list_tasks"
+      responses:
+        "200":
+          description: OK
+        "500":
+          description: Unknown reason
+  /task:
+    post:
+      operationId: "main.api.task.TaskAPI.create_task"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+              properties:
+                name:
+                  type: string
+      responses:
+        "201":
+          description: OK
+        "500":
+          description: Unknown reason
+  /task/{id}:
+    put:
+      operationId: "main.api.task.TaskAPI.update_task"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - status
+              properties:
+                name:
+                  type: string
+                status:
+                  type: integer
+      responses:
+        "200":
+          description: OK
+        "422":
+          description: Task id is not found
+        "500":
+          description: Unknown reason
+    delete:
+      operationId: "main.api.task.TaskAPI.delete_task"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+        "422":
+          description: Task id is not found
+        "500":
+          description: Unknown reason
